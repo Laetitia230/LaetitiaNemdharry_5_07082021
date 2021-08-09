@@ -81,20 +81,6 @@ function basketPreview() {
         }
     }
 }
-let countPlaceholder = document.getElementById('basketPreview');
-
-updateCount = ()=>{
-    let productCount = 0;
-
-if (cart==null) {
-    countPlaceholder.innerHTML = "(0)";
-} else {
-    for (let i = 0; i < cart.length; i++) {
-        productCount = productCount+cart[i].count;
-    };
-    countPlaceholder.innerHTML = "("+productCount+")";
-}}
-updateCount()
 
 
 // supprimer le Panier
