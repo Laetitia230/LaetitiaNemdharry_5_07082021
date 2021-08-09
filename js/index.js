@@ -5,6 +5,7 @@ basketPreview();
 fetch(url)
     .then((response) => response.json())
     .then((data) => {
+        console.log('addCards');
         addCards(data);
     })
     .catch((erreur) => console.log("erreur : " + erreur));
@@ -17,6 +18,7 @@ function addCards(data) {
         const card = document.getElementById("liste");
         //convertit le prix
         const price = convertPrice(produit.price);
+
         card.innerHTML += `
         <div class="col mb-5">
         <div class="card h-100">

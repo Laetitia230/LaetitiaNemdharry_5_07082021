@@ -79,9 +79,23 @@ function basketPreview() {
         for (product of basket) {
             calculBasketPreview += product.quantity;
         }
-        addBasketPreview.innerHTML = `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
     }
 }
+let countPlaceholder = document.getElementById('basketPreview');
+
+updateCount = ()=>{
+    let productCount = 0;
+
+if (cart==null) {
+    countPlaceholder.innerHTML = "(0)";
+} else {
+    for (let i = 0; i < cart.length; i++) {
+        productCount = productCount+cart[i].count;
+    };
+    countPlaceholder.innerHTML = "("+productCount+")";
+}}
+updateCount()
+
 
 // supprimer le Panier
 function clearBasket() {
