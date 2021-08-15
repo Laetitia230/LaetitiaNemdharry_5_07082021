@@ -30,7 +30,7 @@ class Product {
 function displayTotalBasket() {
     let totalBasket = 0;
     basket.forEach((teddies) => {
-        totalBasket = totalBasket + camera.price * teddies.quantity;
+        totalBasket = totalBasket + teddies.price * teddies.quantity;
     });
     return totalBasket;
 }
@@ -79,6 +79,9 @@ function basketPreview() {
         for (product of basket) {
             calculBasketPreview += product.quantity;
         }
+        addBasketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
+
+
     }
 }
 
