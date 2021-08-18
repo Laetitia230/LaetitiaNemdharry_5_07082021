@@ -77,13 +77,12 @@ function basketPreview() {
     } else {
         let addBasketPreview = document.getElementById("basketPreview");
         let calculBasketPreview = 0;
-        console.log(calculBasketPreview);
         for (product of basket) {
             calculBasketPreview += product.quantity;
-            
-        }
+     } 
         addBasketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
     }
+   
 }
 
 
