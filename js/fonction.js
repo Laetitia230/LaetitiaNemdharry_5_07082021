@@ -72,15 +72,14 @@ function totalPrice() {
 
 // calcul du basketPreview
 function basketPreview() {
-    console.log(basket);
-    if (basket.length == 0) {
+    
+    if (basket.length == 0){
     } else {
-        let addBasketPreview = document.getElementById("basketPreview");
         let calculBasketPreview = 0;
         for (product of basket) {
             calculBasketPreview += product.quantity;
      } 
-        addBasketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
+        basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
     }
    
 }
