@@ -1,5 +1,6 @@
 ///Mise à jour du basketPreview
 basketPreview();
+console.log(basketPreview);
 
 //fetch de l'URL
 fetch(url)

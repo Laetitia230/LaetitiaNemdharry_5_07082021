@@ -15,8 +15,8 @@
         <script src="js/scripts.js"></script>
         <script src="js/panier.js"></script>
         <script src="js/fonction.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/produit.js"></script>
+        
+        
     </head>
 <body>
  <!-- Navigation-->
@@ -42,8 +42,8 @@
     </div>
   </header>
   <!--Main Navigation-->
-  <!-- empty cart-->
-  <div class="container-fluid mt-100">
+  <!-- empty Basket-->
+  <div class="container-fluid mt-100" id="emptyBasket">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -99,6 +99,76 @@
         </div>
     </div>
 </section>
+<!-- Formulaire -->
+<div class="my-3 mx-5" id="orderForm">
+    <p class="my-5 fs-5">Merci de bien vouloir remplir ce formulaire pour passer votre commande, tous les champs sont obligatoires</p>
+    <form class="row g-3" id="orderFormValidity">
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Ex: 'ori'"
+                   pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Ex: 'noco'"
+                   pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefaultUsername" class="form-label">Email</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="email" placeholder="Ex: 'orinoco@mail.fr'"
+                       aria-describedby="inputGroupPrepend"
+                       pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationDefault03" class="form-label">Adresse</label>
+            <input type="text" class="form-control" id="address" placeholder="Ex: '3 rue orinoco'"
+                   pattern="^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault04" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="city" placeholder="Ex: 'orinococity'"
+                   pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$" required>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                    <p data-bs-toggle="tooltip" data-bs-placement="top" title="Termes et conditions de vente : Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequatur quos quis, asperiores nostrum cupiditate consequuntur earum quae saepe distinctio!"> Accepter les termes et conditions de vente</p>
+                </label>
+            </div>
+        </div>
+
+        <div class="text-center my-5 d-md-flex justify-content-md-end">
+            <div class="col-12 col-sm-6 my-4">
+                <button type="submit" class="btn btn-secondary mx-5" id="order">Passer la commande</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" id="modalClearBasket" aria-labelledby="modalClearBasket" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Suppression panier</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Voulez-vous vraiment supprimer le panier ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="clearBasket">Oui</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Non</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="py-5 bg-dark">
     <ul class="list-inline text-center position">
         <li class="list-inline-item"><a href="index.html" title="Accueil">Accueil</a></li>
