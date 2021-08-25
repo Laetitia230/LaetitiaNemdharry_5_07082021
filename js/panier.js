@@ -1,9 +1,10 @@
 //Mise à jour du basketPreview
+const basket = JSON.parse(localStorage.getItem("teddies")) || [];
 basketPreview();
-
+console.log(basketPreview);
 const orderForm = document.getElementById("orderForm");
 const emptyBasket = document.getElementById("emptyBasket");
-
+console.log(basket);
 // indique que le panier est vide
 if (basket.length < 1) {
     orderForm.classList.add("d-none");
@@ -114,4 +115,25 @@ if (basket.length < 1) {
             );
         }
     });
+}
+// calcul du basketPreview
+function basketPreview() {
+    
+    if (basket.length == 0){
+    } else {
+        let calculBasketPreview = 0;
+        for (product of basket) {
+            calculBasketPreview += product.quantity;
+     } 
+        basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
+    }
+}
+// supprimer le Panier
+function clearBasket() {
+    localStorage.clear();
+}
+//affiche le totalBasket
+function totalPrice() {
+    const totalPrice = document.getElementById("totalPrice");
+    totalPrice.innerHTML += `${convertPrice(displayTotalBasket())}`;
 }

@@ -85,3 +85,14 @@ fetch(newUrl)
             }
         });
     });
+ // création de la class produit
+class Product {
+    constructor(id, name, description, price, option, imgurl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.option = option;
+        this.imgurl = imgurl;
+    }
+}   
