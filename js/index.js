@@ -38,7 +38,7 @@ function addCards(data) {
             </div>
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"id="btnAddBasket"><a class="btn btn-outline-dark mt-auto" href="produit.html?_id=${produit._id}">Acheter ce produit</a></div>
+                <div class="text-center"id="btnAddBasket"><a class="btn btn-outline-dark mt-auto" href="produit.html?_id=${produit._id}">Voir ce produit</a></div>
             </div>
         </div>
     </div>`;
