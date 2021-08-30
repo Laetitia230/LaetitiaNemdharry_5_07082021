@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <script src="js/scripts.js"></script>
         <script src="js/panier.js"></script>   
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
@@ -42,7 +41,7 @@
   </header>
   <!--Main Navigation-->
   <!-- empty Basket-->
-  <div class="container-fluid mt-100" id="emptyBasket">
+  <div class="container-fluid d-none mt-100" id="emptyBasket">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -61,7 +60,7 @@
 </div>
 <!--Panier-->
 <section id="section" class="container my-5 align-middle ">
-    <div class=" d-none none" id="basket">
+    <div class=" d-none img" id="basket">
         <p class="text-center fs-4 text-light bg-secondary basket d-none">Contenu du panier</p>
         <div class="table-responsive">
             <table class="table table-hover my-auto mx-0">

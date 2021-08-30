@@ -1,17 +1,29 @@
-//Mise à jour du basketPreview
-const basket = JSON.parse(localStorage.getItem("teddies")) || [];
-basketPreview();
-console.log(basketPreview);
 const orderForm = document.getElementById("orderForm");
 const emptyBasket = document.getElementById("emptyBasket");
+const quantity = document.getElementById("quantity");
+const basket = JSON.parse(localStorage.getItem("teddies")) || [];
+basketPreview();
+// calcul du basketPreview
 console.log(basket);
+function basketPreview() {   
+    if (basket.length == 0){      
+    } else {
+        let calculBasketPreview = 0;
+        for (product of basket) {
+            calculBasketPreview += product.quantity;   
+            console.log(quantity);
+     } 
+        basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
+    }  
+}
+console.log(basketPreview);
 // indique que le panier est vide
 if (basket.length < 1) {
     orderForm.classList.add("d-none");
     // sinon affiche le tableau avec les produits
 } else {
     orderForm.classList.add("d-none");
-    emptyBasket.classList.add("d-none");
+    emptyBasket.classList.add("container-fluid");
     const fullBasket = document.getElementById("basket");
     fullBasket.classList.toggle("d-none");
     for (product of basket) {
@@ -22,8 +34,11 @@ if (basket.length < 1) {
     function addProduct(event) {
         const index = event.target.getAttribute("data-index");
         basket[index].quantity++;
+        console.log(quantity);
         localStorage.setItem("teddies", JSON.stringify(basket));
         location.reload();
+        console.log(basket);
+        
     }
 
     const buttonAdd = document.getElementsByClassName("plus");
@@ -93,8 +108,6 @@ if (basket.length < 1) {
             (checkBox.checked == true)
         ) {
             event.preventDefault();
-
-            
             // on envoie en POST
             fetch("http://localhost:3000/api/teddies/order", {
                 method: "POST",
@@ -115,25 +128,4 @@ if (basket.length < 1) {
             );
         }
     });
-}
-// calcul du basketPreview
-function basketPreview() {
-    
-    if (basket.length == 0){
-    } else {
-        let calculBasketPreview = 0;
-        for (product of basket) {
-            calculBasketPreview += product.quantity;
-     } 
-        basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
-    }
-}
-// supprimer le Panier
-function clearBasket() {
-    localStorage.clear();
-}
-//affiche le totalBasket
-function totalPrice() {
-    const totalPrice = document.getElementById("totalPrice");
-    totalPrice.innerHTML += `${convertPrice(displayTotalBasket())}`;
 }

@@ -59,7 +59,8 @@ fetch(newUrl)
                 product.description,
                 product.price,
                 product.colors,
-                product.imageUrl
+                product.imageUrl,
+                product.quantity
             );
             // vérifie s'il est déja présent
             // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
@@ -94,5 +95,6 @@ class Product {
         this.price = price;
         this.option = option;
         this.imgurl = imgurl;
+        this.quantity = this.quantity;
     }
 }   
