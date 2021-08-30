@@ -22,6 +22,14 @@ fetch(newUrl)
             versionChoice.innerHTML += `<option value="${colors}">${colors}</option>`;
         }
     }
+    console.log(product);
+    function addQuantity(product) {
+        const versionChoice = document.getElementById("quantity");
+        for (let quantity of product.quantity) {
+            versionChoice.innerHTML += `<option value="${quantity}">${quantity}</option>`;
+        }
+    }
+    console.log(quantity); 
       // insertion des information de la card du produit
       const selectionProductImage = document.getElementById("productImage");
       selectionProductImage.innerHTML += `
@@ -46,7 +54,17 @@ fetch(newUrl)
             e.preventDefault();
             const list = document.getElementById("option");
             const quantity = document.getElementById("quantity");
-
+// création de la class produit
+class Product {
+    constructor(id, name, description, price, option, imgurl, quantity) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.option = option;
+        this.imgurl = imgurl;
+    }
+}   
             // créer un nouveau produit
             let objectProduct = new Product(
                 newId,
@@ -55,6 +73,7 @@ fetch(newUrl)
                 product.price,
                 product.colors,
                 product.imageUrl,
+                product.quantity,
             );
             // vérifie s'il est déja présent
             // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
@@ -71,8 +90,8 @@ fetch(newUrl)
             // si déjaPresent incrémente seulement la quantité
             if (isAlreadyPresent) {
                 basket[indexModification].quantity += basket[indexModification].quantity;
-                console.log(basket[indexModification].quantity);
                 localStorage.setItem("teddies", JSON.stringify(basket));
+                console.log(basket[indexModification].quantity);
                 // si non, ajoute le produit au localStorage
             } else {
                 basket.push(objectProduct);
@@ -80,16 +99,5 @@ fetch(newUrl)
             }
         });
     });
-// création de la class produit
-class Product {
-    constructor(id, name, description, price, option, imgurl) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.option = option;
-        this.imgurl = imgurl;
-        this.quantity = this.quantity;
-    }
-}   
+
 
