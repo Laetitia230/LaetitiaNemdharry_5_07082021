@@ -11,12 +11,13 @@ function basketPreview() {
         let calculBasketPreview = 0;
         for (product of basket) {
             calculBasketPreview += product.quantity;   
-            console.log(quantity);
+            console.log("quantity",product.quantity);
+            console.log(calculBasketPreview);
      } 
         basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
     }  
+   
 }
-console.log(basketPreview);
 // indique que le panier est vide
 if (basket.length < 1) {
     orderForm.classList.add("d-none");

@@ -1,6 +1,5 @@
 //Mise à jour du basketPreview
 basketPreview();
-
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("_id");
@@ -16,36 +15,32 @@ fetch(newUrl)
 
         // fonction pour la création de la card de la page produit
         function addCard(product) {
-
-            // insertion des information de la card du produit
-            const selectionProductImage = document.getElementById("productImage");
-            selectionProductImage.innerHTML += `
-        <img src="${product.imageUrl}" class="img-fluid img-thumbnail" alt="${product.name}">
-        `;
-            const selectionProductName = document.getElementById("productName");
-            selectionProductName.innerHTML += `
-        <h1 class="display-5 fw-bolder">${product.name}</h1>
-        `;
-            const selectionProductPrice = document.getElementById("productPrice");
-            selectionProductPrice.innerHTML += `
-         <span>${convertPrice(product.price)}</span>
-        `;
-            const selectionProductDescription = document.getElementById("productDescription");
-            selectionProductDescription.innerHTML += `
-        <p class="lead">${product.description}</p>
-        `;
-        addColors(product);
-    }
-
+    
     function addColors(product) {
         const versionChoice = document.getElementById("option");
         for (let colors of product.colors) {
             versionChoice.innerHTML += `<option value="${colors}">${colors}</option>`;
         }
     }
-
-        
-
+      // insertion des information de la card du produit
+      const selectionProductImage = document.getElementById("productImage");
+      selectionProductImage.innerHTML += `
+  <img src="${product.imageUrl}" class="img-fluid img-thumbnail" alt="${product.name}">
+  `;
+      const selectionProductName = document.getElementById("productName");
+      selectionProductName.innerHTML += `
+  <h1 class="display-5 fw-bolder">${product.name}</h1>
+  `;
+      const selectionProductPrice = document.getElementById("productPrice");
+      selectionProductPrice.innerHTML += `
+   <span>${convertPrice(product.price)}</span>
+  `;
+      const selectionProductDescription = document.getElementById("productDescription");
+      selectionProductDescription.innerHTML += `
+  <p class="lead">${product.description}</p>
+  `;
+  addColors(product);
+}
         const btnAddBasket = document.getElementById("btnAddBasket");
         btnAddBasket.addEventListener("click", (e) => {
             e.preventDefault();
@@ -60,15 +55,14 @@ fetch(newUrl)
                 product.price,
                 product.colors,
                 product.imageUrl,
-                product.quantity
             );
             // vérifie s'il est déja présent
             // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
             let isAlreadyPresent = false;
             let indexModification;
             for (products of basket) {
-                switch (products.option) {
-                    case objectProduct.option:
+                switch (products.id) {
+                    case objectProduct.id:
                         isAlreadyPresent = true;
                         indexModification = basket.indexOf(products);
                 }
@@ -76,8 +70,8 @@ fetch(newUrl)
 
             // si déjaPresent incrémente seulement la quantité
             if (isAlreadyPresent) {
-                basket[indexModification].quantity =
-                    +basket[indexModification].quantity + +objectProduct.colors;
+                basket[indexModification].quantity += basket[indexModification].quantity;
+                console.log(basket[indexModification].quantity);
                 localStorage.setItem("teddies", JSON.stringify(basket));
                 // si non, ajoute le produit au localStorage
             } else {
@@ -86,7 +80,7 @@ fetch(newUrl)
             }
         });
     });
- // création de la class produit
+// création de la class produit
 class Product {
     constructor(id, name, description, price, option, imgurl) {
         this.id = id;
@@ -98,3 +92,4 @@ class Product {
         this.quantity = this.quantity;
     }
 }   
+
