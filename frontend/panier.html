@@ -10,7 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../frontend/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <script src="../frontend/js/panier.js"></script>   
+        <script src="../frontend/js/panier.js"></script>  
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../frontend/css/styles.css" rel="stylesheet" />
         <!-- Bootstrap core JS-->
@@ -60,7 +60,7 @@
 </div>
 <!--Panier-->
 <section id="section" class="container my-5 align-middle ">
-    <div class=" d-none img" id="basket">
+    <div class=" d-none" id="basket">
         <p class="text-center fs-4 text-light bg-secondary basket d-none">Contenu du panier</p>
         <div class="table-responsive">
             <table class="table table-hover my-auto mx-0">
@@ -69,7 +69,16 @@
                     <th scole="col">Produit</th>
                     <th scole="col">Nom</th>
                     <th scole="col">Option</th>
-                    <th scole="col">Quantité</th>
+                    <th scole="col" class="minus plus">Quantité</th>
+                    <div>
+                        <div class="def-number-input number-input safari_only mb-0 w-100">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            class="minus"></button>
+                          <input class="quantity" min="0" name="quantity" value="1" type="number">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            class="plus"></button>
+                        </div>
+                      </div>
                     <th scole="col">Prix</th>
                     <th scole="col" class="bg-light">Sous-total</th>
                 </tr>

@@ -2,6 +2,14 @@ const orderForm = document.getElementById("orderForm");
 const emptyBasket = document.getElementById("emptyBasket");
 const quantity = document.getElementById("quantity");
 const basket = JSON.parse(localStorage.getItem("teddies")) || [];
+// calcul du total
+function displayTotalBasket() {
+    let totalBasket = 0;
+    basket.forEach((teddies) => {
+        totalBasket = totalBasket + teddies.price * teddies.quantity;
+    });
+    return totalBasket;
+}
 basketPreview();
 // calcul du basketPreview
 console.log(basket);
