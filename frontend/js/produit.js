@@ -56,7 +56,7 @@ btnAddBasket.addEventListener("click", (e) => {
         localStorage.getItem("teddies", JSON.stringify(quantity));
         basket[indexModification].quantity += basket[indexModification].quantity ;
         localStorage.setItem("teddies", JSON.stringify(basket));
-        console.log("TOTO",basket[indexModification].quantity);
+        //console.log("TOTO",basket[indexModification].quantity);
         // si non, ajoute le produit au localStorage
     } else {
         basket.push(objectProduct);
@@ -98,18 +98,23 @@ function addColors(product) {
     document.getElementById('option').addEventListener('change', function() {
         console.log('You selected: ', this.value);
       });
-    console.log(product);
+console.log(product);
+
 }
 function addQuantity(product) {
     const versionChoice = document.getElementById("quantity");
-    for (let quantity of product.quantity) {
+    const quantities = [1, 2, 3, 4, 5];
+   
+    for (let quantity of quantities) {
         versionChoice.innerHTML += `<option value="${quantity}">${quantity}</option>`;
     }
     document.getElementById('quantity').addEventListener('change', function() {
+        versionChoice.value = this.value;
         console.log('You selected: ', this.value);
       });   
-    console.log(product);
+    console.log(versionChoice.value);
     localStorage.setItem("teddies", JSON.stringify(quantity));
+    console.log(product);
 }
 
 
