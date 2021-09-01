@@ -51,8 +51,10 @@ btnAddBasket.addEventListener("click", (e) => {
     }
 
     // si déjaPresent incrémente seulement la quantité
+    addQuantity(product);
     if (isAlreadyPresent) {
-        basket[indexModification].quantity += basket[indexModification].quantity + addQuantity;
+        localStorage.getItem("teddies", JSON.stringify(quantity));
+        basket[indexModification].quantity += basket[indexModification].quantity ;
         localStorage.setItem("teddies", JSON.stringify(basket));
         console.log("TOTO",basket[indexModification].quantity);
         // si non, ajoute le produit au localStorage
@@ -60,6 +62,7 @@ btnAddBasket.addEventListener("click", (e) => {
         basket.push(objectProduct);
         localStorage.setItem("teddies", JSON.stringify(basket));
     }
+
 });
     });
 // fonction pour la création de la card de la page produit
@@ -106,7 +109,7 @@ function addQuantity(product) {
         console.log('You selected: ', this.value);
       });   
     console.log(product);
-    localStorage.setItem("teddies", JSON.stringify(basket));
+    localStorage.setItem("teddies", JSON.stringify(quantity));
 }
 
 
