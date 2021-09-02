@@ -1,5 +1,5 @@
 //Variables Globales
-const url = `http://localhost:3000/api/teddies`;
+const url = `http://localhost:3000/api/teddies/`;
 const basket = JSON.parse(localStorage.getItem("teddies")) || [];
 
 // convertir le prix
@@ -13,12 +13,24 @@ function convertPrice(productPrice) {
     return price;
 }
 
+// création de la class produit
+class Product {
+    constructor(id, name, description, price, option, quantity, imgurl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = +price;
+        this.option = option;
+        this.quantity = +quantity;
+        this.imgurl = imgurl;
+    }
+}
 
 // calcul du total
 function displayTotalBasket() {
     let totalBasket = 0;
-    basket.forEach((teddies) => {
-        totalBasket = totalBasket + teddies.price * teddies.quantity;
+    basket.forEach((camera) => {
+        totalBasket = totalBasket + camera.price * camera.quantity;
     });
     return totalBasket;
 }
@@ -60,18 +72,15 @@ function totalPrice() {
 
 // calcul du basketPreview
 function basketPreview() {
-    
-    if (basket.length == 0){
+    if (basket.length == 0) {
     } else {
         let calculBasketPreview = 0;
         for (product of basket) {
             calculBasketPreview += product.quantity;
-     } 
-        basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
+        }
+       basketPreview.innerHTML = `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
     }
-   
 }
-
 
 // supprimer le Panier
 function clearBasket() {

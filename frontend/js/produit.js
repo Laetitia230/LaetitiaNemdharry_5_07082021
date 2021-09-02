@@ -36,7 +36,6 @@ btnAddBasket.addEventListener("click", (e) => {
         product.price,
         product.colors,
         product.imageUrl,
-        product.quantity,
     );
     // vérifie s'il est déja présent
     // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
