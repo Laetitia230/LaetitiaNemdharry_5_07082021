@@ -12,7 +12,7 @@ function displayTotalBasket() {
 }
 basketPreview();
 // calcul du basketPreview
-console.log(basket);
+localStorage.getItem("teddies", JSON.stringify(quantity));
 function basketPreview() {   
     if (basket.length == 0){      
     } else {

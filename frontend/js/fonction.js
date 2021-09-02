@@ -1,5 +1,5 @@
 //Variables Globales
-const url = `http://localhost:3000/api/teddies/`;
+const url = "http://localhost:3000/api/teddies/";
 const basket = JSON.parse(localStorage.getItem("teddies")) || [];
 
 // convertir le prix
@@ -19,9 +19,9 @@ class Product {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.price = +price;
+        this.price = price;
         this.option = option;
-        this.quantity = +quantity;
+        this.quantity = quantity;
         this.imgurl = imgurl;
     }
 }
@@ -75,7 +75,7 @@ function basketPreview() {
     if (basket.length == 0) {
     } else {
         let calculBasketPreview = 0;
-        for (product of basket) {
+        for (product of basket){
             calculBasketPreview += product.quantity;
         }
        basketPreview.innerHTML = `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;

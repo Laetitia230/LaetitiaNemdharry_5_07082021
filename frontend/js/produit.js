@@ -34,8 +34,8 @@ btnAddBasket.addEventListener("click", (e) => {
         product.name,
         product.description,
         product.price,
-        product.colors,
         product.imageUrl,
+        quantity.value,
     );
     // vérifie s'il est déja présent
     // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
@@ -90,9 +90,9 @@ function addCard(product) {
     addColors(product);
 }
 function addColors(product) {
-    const versionChoice = document.getElementById("option");
+    const color = document.getElementById("option");
     for (let colors of product.colors) {
-        versionChoice.innerHTML += `<option value="${colors}">${colors}</option>`;
+        color.innerHTML += `<option value="${colors}">${colors}</option>`;
     }
     document.getElementById('option').addEventListener('change', function() {
         console.log('You selected: ', this.value);
@@ -101,19 +101,17 @@ console.log(product);
 
 }
 function addQuantity(product) {
-    const versionChoice = document.getElementById("quantity");
+    const quantity = document.getElementById("quantity");
     const quantities = [1, 2, 3, 4, 5];
    
     for (let quantity of quantities) {
-        versionChoice.innerHTML += `<option value="${quantity}">${quantity}</option>`;
+        quantity.innerHTML += `<option value="${quantity}">${quantity}</option>`;
     }
     document.getElementById('quantity').addEventListener('change', function() {
-        versionChoice.value = this.value;
+        quantity.value = this.value;
         console.log('You selected: ', this.value);
       });   
-    console.log(versionChoice.value);
+    console.log(quantity.value);
     localStorage.setItem("teddies", JSON.stringify(quantity));
     console.log(product);
 }
-
-
