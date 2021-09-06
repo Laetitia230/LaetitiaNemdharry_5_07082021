@@ -9,6 +9,8 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../frontend/assets/favicon.ico" />
         <!-- Bootstrap icons-->
+        <script src="https://kit.fontawesome.com/41bb8c668c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <script src="../frontend/js/panier.js"></script>  
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -41,7 +43,7 @@
   </header>
   <!--Main Navigation-->
   <!-- empty Basket-->
-  <div class="container-fluid d-none mt-100" id="emptyBasket">
+  <section class="container-fluid d-none mt-100" id="emptyBasket">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -57,8 +59,9 @@
             </div>
         </div>
     </div>
-</div>
+  </section>
 <!--Panier-->
+<!-- Table -->
 <section id="section" class="container my-5 align-middle ">
     <div class=" d-none" id="basket">
         <p class="text-center fs-4 text-light bg-secondary basket d-none">Contenu du panier</p>
@@ -69,16 +72,7 @@
                     <th scole="col">Produit</th>
                     <th scole="col">Nom</th>
                     <th scole="col">Option</th>
-                    <th scole="col" class="minus plus">Quantité</th>
-                    <div>
-                        <div class="def-number-input number-input safari_only mb-0 w-100">
-                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                            class="minus"></button>
-                          <input class="quantity" min="0" name="quantity" value="1" type="number">
-                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                            class="plus"></button>
-                        </div>
-                      </div>
+                    <th scole="col">Quantité</th>
                     <th scole="col">Prix</th>
                     <th scole="col" class="bg-light">Sous-total</th>
                 </tr>
@@ -106,9 +100,10 @@
         </div>
     </div>
 </section>
+
 <!-- Formulaire -->
 <div class="my-3 mx-5" id="orderForm">
-    <p class="my-5 fs-5">Merci de bien vouloir remplir ce formulaire pour passer votre commande, tous les champs sont obligatoires</p>
+    <p class="my-5 fs-5">Merci de remplir ce formulaire pour passer votre commande, tous les champs sont obligatoires</p>
     <form class="row g-3" id="orderFormValidity">
         <div class="col-md-4">
             <label for="validationDefault01" class="form-label">Prénom</label>

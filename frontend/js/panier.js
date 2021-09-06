@@ -1,5 +1,6 @@
 const orderForm = document.getElementById("orderForm");
 const emptyBasket = document.getElementById("emptyBasket");
+const fullBasket = document.getElementById("basket");
 const quantity = document.getElementById("quantity");
 const basket = JSON.parse(localStorage.getItem("teddies")) || [];
 // calcul du total
@@ -13,27 +14,27 @@ function displayTotalBasket() {
 basketPreview();
 // calcul du basketPreview
 localStorage.getItem("teddies", JSON.stringify(quantity));
-function basketPreview() {   
-    if (basket.length == 0){      
+function basketPreview() {
+    if (basket.length == 0) {
     } else {
         let calculBasketPreview = 0;
         for (product of basket) {
-            calculBasketPreview += product.quantity;   
-            console.log("quantity",product.quantity);
-            
-     } 
+            calculBasketPreview += product.quantity;
+            console.log("quantity", product.quantity);
+
+        }
         basketPreview.innerHTML += `Panier <span class="badge rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
-    }  
+    }
     console.log(basket);
 }
 // indique que le panier est vide
 if (basket.length < 1) {
-    emptyBasket.classList.add("container-fluid");
-    // sinon affiche le tableau avec les produits
-} else {
+    fullBasket.classList.add("d-none");
     orderForm.classList.add("d-none");
-    const fullBasket = document.getElementById("basket");
-    fullBasket.classList.toggle("d-none");
+ // sinon affiche le tableau avec les produits
+} else {
+    emptyBasket.classList.add("d-none");
+    orderForm.classList.add("d-none");
     for (product of basket) {
         displayProductListTable(product);
     }
@@ -46,7 +47,7 @@ if (basket.length < 1) {
         localStorage.setItem("teddies", JSON.stringify(basket));
         location.reload();
         console.log(basket);
-        
+
     }
 
     const buttonAdd = document.getElementsByClassName("plus");
@@ -150,7 +151,7 @@ function displayProductListTable(product) {
             <span>${product.name}</span>
         </td>
         <td class="align-middle">
-            <span>${product.option}</span>
+            <span>${product.colors}</span>
         </td>
         <td class="align-middle productQuantity">
             <button type="button" class="rounded minus data-toggle="modal" data-target="#exampleModal" data-index="${indexProduct}"><span class="fas fa-minus-square text-danger" data-index="${indexProduct}"></span></button>
