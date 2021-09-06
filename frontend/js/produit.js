@@ -35,7 +35,7 @@ fetch(newUrl)
                 newId,
                 data.name,
                 data.description,
-                (product.price * quantity.value) / 100,
+                product.price,
                 colors.value,
                 data.imageUrl,
                 quantity.value,

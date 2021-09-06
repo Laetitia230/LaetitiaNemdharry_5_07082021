@@ -15,12 +15,12 @@ function convertPrice(productPrice) {
 
 // création de la class produit
 class Product {
-    constructor(id, name, description, price, option, quantity, imgurl) {
+    constructor(id, name, description, price, colors, quantity, imgurl) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.option = option;
+        this.colors = colors;
         this.quantity = quantity;
         this.imgurl = imgurl;
     }
@@ -48,7 +48,7 @@ function displayProductListTable(product) {
             <span>${product.name}</span>
         </td>
         <td class="align-middle">
-            <span>${product.option}</span>
+            <span>${product.colors}</span>
         </td>
         <td class="align-middle productQuantity">
             <button type="button" class="rounded minus data-toggle="modal" data-target="#exampleModal" data-index="${indexProduct}"><span class="fas fa-minus-square text-danger" data-index="${indexProduct}"></span></button>
