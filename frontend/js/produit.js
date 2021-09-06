@@ -11,58 +11,63 @@ fetch(newUrl)
     .then((response) => response.json())
     .then((data) => {
         const product = data;
+        // création de la class produit
+        class Product {
+            constructor(id, name, description, price, colors, imgurl, quantity) {
+                this.id = id;
+                this.name = name;
+                this.description = description;
+                this.price = price;
+                this.colors = colors;
+                this.imgurl = imgurl;
+                this.quantity = quantity;
+            }
+        }
+
         addCard(data);
         const btnAddBasket = document.getElementById("btnAddBasket");
-btnAddBasket.addEventListener("click", (e) => {
-    e.preventDefault();
-    const list = document.getElementById("option");
-    const quantity = document.getElementById("quantity");
-    // création de la class produit
-    class Product {
-        constructor(id, name, description, price, option, imgurl) {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.price = price;
-            this.option = option;
-            this.imgurl = imgurl;
-        }
-    }
-    // créer un nouveau produit
-    let objectProduct = new Product(
-        newId,
-        product.name,
-        product.description,
-        product.price,
-        product.imageUrl,
-        quantity.value,
-    );
-    // vérifie s'il est déja présent
-    // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
-    let isAlreadyPresent = false;
-    let indexModification;
-    for (products of basket) {
-        switch (products.id) {
-            case objectProduct.id:
-                isAlreadyPresent = true;
-                indexModification = basket.indexOf(products);
-        }
-    }
+        btnAddBasket.addEventListener("click", (e) => {
+            e.preventDefault();
+            const colors = document.getElementById("option");
+            const quantity = document.getElementById("quantity");
+            // créer un nouveau produit
+            let objectProduct = new Product(
+                newId,
+                data.name,
+                data.description,
+                data.price,
+                colors.value,
+                data.imageUrl,
+                quantity.value,
+            );
 
-    // si déjaPresent incrémente seulement la quantité
-    addQuantity(product);
-    if (isAlreadyPresent) {
-        localStorage.getItem("teddies", JSON.stringify(quantity));
-        basket[indexModification].quantity += basket[indexModification].quantity ;
-        localStorage.setItem("teddies", JSON.stringify(basket));
-        //console.log("TOTO",basket[indexModification].quantity);
-        // si non, ajoute le produit au localStorage
-    } else {
-        basket.push(objectProduct);
-        localStorage.setItem("teddies", JSON.stringify(basket));
-    }
 
-});
+            // vérifie s'il est déja présent
+            // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
+            let isAlreadyPresent = false;
+            let indexModification;
+            for (products of basket) {
+                switch (products.id) {
+                    case objectProduct.id:
+                        isAlreadyPresent = true;
+                        indexModification = basket.indexOf(products);
+                }
+            }
+            // si déjaPresent incrémente seulement la quantité
+            addQuantity(product);
+            if (isAlreadyPresent) {
+                localStorage.getItem("teddies", JSON.stringify(quantity));
+                basket[indexModification].quantity =
+                +basket[indexModification].quantity + +objectProduct.quantity;
+                localStorage.setItem("teddies", JSON.stringify(basket));
+                //console.log("TOTO",basket[indexModification].quantity);
+                // si non, ajoute le produit au localStorage
+            } else {
+                basket.push(objectProduct);
+                localStorage.setItem("teddies", JSON.stringify(basket));
+            }
+
+        });
     });
 // fonction pour la création de la card de la page produit
 function addCard(product) {
@@ -85,7 +90,7 @@ function addCard(product) {
       `;
     const selectionProductQuantity = document.getElementById("quantity");
     selectionProductQuantity.innerHTML += `
-      <p class="lead">${product.quantity}</p>
+      <p class="lead">${quantity.value}</p>
       `;
     addColors(product);
 }
@@ -94,24 +99,25 @@ function addColors(product) {
     for (let colors of product.colors) {
         color.innerHTML += `<option value="${colors}">${colors}</option>`;
     }
-    document.getElementById('option').addEventListener('change', function() {
+    document.getElementById('option').addEventListener('change', function () {
+        product.colors = this.value;
         console.log('You selected: ', this.value);
-      });
-console.log(product);
+    });
+    console.log(product);
 
 }
 function addQuantity(product) {
     const quantity = document.getElementById("quantity");
     const quantities = [1, 2, 3, 4, 5];
-   
+
     for (let quantity of quantities) {
         quantity.innerHTML += `<option value="${quantity}">${quantity}</option>`;
     }
-    document.getElementById('quantity').addEventListener('change', function() {
+    document.getElementById('quantity').addEventListener('change', function () {
         quantity.value = this.value;
         console.log('You selected: ', this.value);
-      });   
+    });
     console.log(quantity.value);
-    localStorage.setItem("teddies", JSON.stringify(quantity));
+    localStorage.setItem("teddies", JSON.stringify(product));
     console.log(product);
 }
