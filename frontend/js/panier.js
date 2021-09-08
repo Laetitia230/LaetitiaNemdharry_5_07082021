@@ -130,6 +130,7 @@ if (basket.length < 1) {
 
             // on envoie en POST
             fetch("http://localhost:3000/api/teddies/order", {
+               
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

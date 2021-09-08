@@ -7379,7 +7379,7 @@ textarea.form-control-lg {
 }
 
 .bg-secondary {
-  background-color: #6c757d !important;
+  background-color: mediumpurple!important;
 }
 
 .bg-success {
@@ -7475,7 +7475,12 @@ textarea.form-control-lg {
 }
 
 .rounded-pill {
-  border-radius: 50rem !important;
+  border-radius: 50% !important;
+  padding: 1%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  -o-border-radius: 50% !important;
 }
 
 .rounded-top {
