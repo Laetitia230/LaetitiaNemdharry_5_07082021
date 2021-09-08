@@ -7476,7 +7476,7 @@ textarea.form-control-lg {
 
 .rounded-pill {
   border-radius: 50% !important;
-  padding: 1%;
+  padding: 6px;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
   -ms-border-radius: 50% !important;
