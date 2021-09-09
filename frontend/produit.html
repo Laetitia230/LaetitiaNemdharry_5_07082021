@@ -1,117 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Produit</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../frontend/assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <script src="../frontend/js/fonction.js"></script>
-        <script src="../frontend/js/produit.js"></script>
-        <script src="../frontend/js/scripts.js"></script>
 
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../frontend/css/styles.css" rel="stylesheet" />
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-       
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <img src="../frontend/images/Orinoco.jpg" alt="logo" class="navbar-brand logo" >
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../frontend/index.html">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="../frontend/panier.html" id="basketPreview"><i class="bi-cart-fill me-1"></i>Panier</a></li>
-                        </li>
-                    </ul>
-                </div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Produit</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../frontend/assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="../frontend/js/scripts.js"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../frontend/css/styles.css" rel="stylesheet" />
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <img src="../frontend/images/Orinoco.jpg" alt="logo" class="navbar-brand logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                            href="../frontend/index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../frontend/panier.html"
+                            id="basketPreview">Panier</a></li>
+                </ul>
             </div>
-        </nav>
-        <!-- Product section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="row gx-4 gx-lg-5 align-items-center"id="product">
-                    <div class="col-md-6" id="productImage"></div>
-                    <div class="col-md-6 detail">
-                        <!--Nom du produit-->
-                        <h1 class="display-5 fw-bolder" id="productName"></h1>
-                        <div class="fs-5 mb-5">
-                            <!--Prix du produit-->
-                            <span id="productPrice"></span>
+        </div>
+    </nav>
+    <!-- Product section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center" id="product">
+                <div class="col-md-6" id="productImage"></div>
+                <div class="col-md-6 detail">
+                    <!--Nom du produit-->
+                    <h1 class="display-5 fw-bolder" id="productName"></h1>
+                    <div class="fs-5 mb-5">
+                        <!--Prix du produit-->
+                        <span id="productPrice"></span>
+                    </div>
+                    <p class="lead" id="productDescription"> </p>
+                    <div class="d-flex">
+                        <select id="option" class="form-select mb-3" aria-label="choisir la version">
+                        </select>
+                        <div class="row">
+                            <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 my-auto">
+                                <p>Quantité :</p>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-4 col-lg-3 ">
+                                <select id="quantity" class="form-select mb-3" aria-label="Quantité">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
                         </div>
-                        <p class="lead" id="productDescription"> </p>
-                        <div class="d-flex">
-                            <select id="option" class="form-select mb-3" aria-label="choisir la version">
-                            </select>
-                            <div class="row">
-                                <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 my-auto">
-                                    <p>Quantité :</p>
-                                </div>
-                                <div class="col-4 col-sm-3 col-md-4 col-lg-3 ">
-                                    <select id="quantity" class="form-select mb-3" aria-label="Quantité">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button id="btnAddBasket" class="btn btn-secondary" data-bs-toggle="modal"
+                        <button id="btnAddBasket" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#myModal">Ajouter au panier</button>
-                </div>
-                <div class="toast show position-absolute top-50 start-50 translate-middle bg-danger" id="myToast"
-                     hidden>
-                    <div id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="d-flex my-2">
-                            <div class="toast-body me-auto py-0 text-white" id="message">
+                    </div>
+                    <div class="toast show position-absolute top-50 start-50 translate-middle bg-danger" id="myToast"
+                        hidden>
+                        <div id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex my-2">
+                                <div class="toast-body me-auto py-0 text-white" id="message">
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 plus"
+                                    data-bs-dismiss="toast" aria-label="Close" id="closeToast"></button>
                             </div>
-                            <button type="button" class="btn-close btn-close-white me-2 plus" data-bs-dismiss="toast"
-                                    aria-label="Close" id="closeToast"></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Produit ajouté</h5>
-            </div>
-            <div class="modal-body">
-                <p>Votre produit a bien été ajouté au panier</p>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-secondary" type="button" href="../frontend/panier.html">Voir mon panier</a>
-                <a class="btn btn-success" type="button" href="../frontend/index.html">Continuer mes achats</a>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Produit ajouté</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Votre produit a bien été ajouté au panier</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary" type="button" href="../frontend/panier.html">Voir mon panier</a>
+                    <a class="btn btn-success" type="button" href="../frontend/index.html">Continuer mes achats</a>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-        
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <ul class="list-inline text-center position">
-                <li class="list-inline-item"><a href="../frontend/index.html" title="Accueil">Accueil</a></li>
-                <li class="list-inline-item"><a href="mailto:orinoco@mail.com?subject=Contact" title="Contact">Contact</a>
-                </li>
-                <li class="list-inline-item"><a href="#" title="Mentions Légales">Mentions Légales</a></li>
-            </ul>
-        </footer>
-    </body>
+    <!-- Footer-->
+    <footer class="py-5 bgLinearGradien">
+        <ul class="list-inline text-center position">
+            <li class="list-inline-item"><a href="../frontend/index.html" title="Accueil">Accueil</a></li>
+            <li class="list-inline-item"><a href="mailto:orinoco@mail.com?subject=Contact" title="Contact">Contact</a>
+            </li>
+            <li class="list-inline-item"><a href="#" title="Mentions Légales">Mentions Légales</a></li>
+        </ul>
+    </footer>
+    <!--Fichier JS-->
+    <script src="../frontend/js/fonction.js"></script>
+    <script src="../frontend/js/produit.js"></script>
+</body>
 </html>

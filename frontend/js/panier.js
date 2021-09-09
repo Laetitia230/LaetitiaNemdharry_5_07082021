@@ -49,6 +49,7 @@ if (basket.length < 1) {
 
     //affiche le prix total
     totalPrice();
+    console.log(basket);
 
     //affiche le formulaire et cache les boutons valider/supprimer panier
     const validationBasket = document.getElementById("validationBasket");

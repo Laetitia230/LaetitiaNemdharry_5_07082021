@@ -44,23 +44,23 @@
     </nav>
 
     <!-- Contact details -->
-    <section id="contact" class="mx-5 px-0 px-lg-5">
+    <div id="contact" class="mx-5 px-0 px-lg-5">
         <p class="text-center fs-2 my-5 bg-secondary text-white">Mes informations</p>
-    </section>
+    </div>
 
     <!-- Table -->
     <section id="section" class="container my-5 align-middle border-top border-dark">
-        <p class="text-center fs-2 my-5 bg-secondary text-white">Récapitulatif de la commande</p>
+        <h5 class="text-center fs-2 my-5 bg-secondary text-white">Récapitulatif de la commande</h5>
         <div class="table-responsive">
             <table class="table table-hover my-auto mx-0">
                 <thead>
                     <tr class="text-center fs-5">
-                        <th scole="col">Produit</th>
-                        <th scole="col">Nom</th>
-                        <th scole="col">Option</th>
-                        <th scole="col">Quantité</th>
-                        <th scole="col">Prix</th>
-                        <th scole="col" class="bg-light">Sous-total</th>
+                        <th scope="col">Produit</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Option</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col" class="bg-light">Sous-total</th>
                     </tr>
                 </thead>
                 <tbody id="productsBasket">
@@ -75,14 +75,15 @@
                 </tfoot>
             </table>
         </div>
-    </section>
+    </div>
     <div class="px-5 mx-5 my-4 d-md-flex justify-content-md-end">
         <button type="submit" class="btn btn-secondary mx-5 align-end" id="print">Imprimer la commande</button>
     </div>
+    </section>
 
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bgLinearGradien">
         <ul class="list-inline text-center position">
             <li class="list-inline-item"><a href="../frontend/index.html" title="Accueil">Accueil</a></li>
             <li class="list-inline-item"><a href="mailto:orinoco@mail.com?subject=Contact" title="Contact">Contact</a>

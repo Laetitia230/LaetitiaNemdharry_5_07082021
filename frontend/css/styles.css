@@ -37,7 +37,9 @@
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
-
+.bgLinearGradien{
+background: linear-gradient(45deg,#fd7e14, mediumpurple);
+}
 *,
 *::before,
 *::after {
@@ -211,7 +213,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: #0a58ca;
+  color:black;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -2993,12 +2995,12 @@ textarea.form-control-lg {
 
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
+  background-color:mediumpurple;
   border-color: #6c757d;
 }
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5c636a;
+  background-color: #9203d4;
   border-color: #565e64;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {
@@ -3113,7 +3115,7 @@ textarea.form-control-lg {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
+  background-color:#fd7e14;
   border-color: #dc3545;
 }
 .btn-danger:hover {
