@@ -77,7 +77,7 @@ function basketPreview() {
         let addBasketPreview = document.getElementById("basketPreview");
         let calculBasketPreview = 0;
         for (product of basket) {
-            calculBasketPreview += product.quantity;
+            calculBasketPreview += +product.quantity;
         }
         addBasketPreview.innerHTML = `Panier <span class=" rounded-pill bg-secondary align-middle my-auto">${calculBasketPreview}</span>`;
     }

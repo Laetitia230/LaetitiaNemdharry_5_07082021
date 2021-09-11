@@ -47,8 +47,8 @@ fetch(newUrl)
             let isAlreadyPresent = false;
             let indexModification;
             for (products of basket) {
-                switch (products.id) {
-                    case objectProduct.id:
+                switch (products.colors) {
+                    case objectProduct.colors:
                         isAlreadyPresent = true;
                         indexModification = basket.indexOf(products);
                 }
