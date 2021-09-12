@@ -12,7 +12,6 @@ function convertPrice(productPrice) {
     }).format(price / 100);
     return price;
 }
-
 // création de la class produit
 class Product {
     constructor(id, name, description, price, colors, quantity, imgurl) {
@@ -29,11 +28,12 @@ class Product {
 // calcul du total
 function displayTotalBasket() {
     let totalBasket = 0;
-    basket.forEach((camera) => {
-        totalBasket = totalBasket + camera.price * camera.quantity;
+    basket.forEach((teddies) => {
+        totalBasket = totalBasket + teddies.price * teddies.quantity;
     });
     return totalBasket;
 }
+console.log(displayTotalBasket);
 
 //ajoute le tableau de commande
 function displayProductListTable(product) {
