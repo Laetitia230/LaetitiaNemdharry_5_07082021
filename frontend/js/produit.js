@@ -23,7 +23,6 @@ fetch(newUrl)
                 this.quantity = quantity;
             }
         }
-
         addCard(data);
         const btnAddBasket = document.getElementById("btnAddBasket");
         btnAddBasket.addEventListener("click", (e) => {
@@ -68,7 +67,27 @@ fetch(newUrl)
             }
 
         });
-    });
+    })
+    .catch((erreur) => error(product));
+//fonction erreur 
+function error(product) {
+    const errors = document.getElementById("productList");
+    errors.innerHTML = 
+        ` 
+        <div class="col-12 mt-2">
+            <div class="card mb-4 border-light shadow-lg product-page">
+            <div class="card-header bgLinearGradien text-white">
+                <h1 class="card-title error-title">Aucun produit ne correspond à votre recherche</h1>
+            </div>
+            <div class="card-body error-info">
+                <p class="card-text error-description">Mais rassurez-vous, nous en avons beaucoup d'autres!</p>
+                <a href="../frontend/index.html" class="stretched-link btn bgLinearGradien col-8">Retour à l'accueil</a>
+            </div>
+            </div>
+        </div>
+        ` ; 
+
+}
 // fonction pour la création de la card de la page produit
 function addCard(product) {
     // insertion des information de la card du produit
