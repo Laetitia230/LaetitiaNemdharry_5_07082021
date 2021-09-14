@@ -33,7 +33,6 @@ function displayTotalBasket() {
     });
     return totalBasket;
 }
-console.log(displayTotalBasket);
 
 //ajoute le tableau de commande
 function displayProductListTable(product) {

@@ -1,12 +1,9 @@
 ///Mise à jour du basketPreview
 basketPreview();
-console.log(basketPreview);
-
 //fetch de l'URL
 fetch(url)
     .then((response) => response.json())
     .then((data) => {
-        console.log('addCards');
         addCards(data);
     })
     .catch((erreur) => console.log("erreur : " + erreur));

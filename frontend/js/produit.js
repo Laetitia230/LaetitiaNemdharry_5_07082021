@@ -59,7 +59,7 @@ fetch(newUrl)
                 basket[indexModification].quantity =
                 +basket[indexModification].quantity + +objectProduct.quantity;
                 localStorage.setItem("teddies", JSON.stringify(basket));
-                //console.log("TOTO",basket[indexModification].quantity);
+    
                 // si non, ajoute le produit au localStorage
             } else {
                 basket.push(objectProduct);
@@ -120,9 +120,8 @@ function addColors(product) {
     }
     document.getElementById('option').addEventListener('change', function () {
         product.colors = this.value;
-        console.log('You selected: ', this.value);
     });
-    console.log(product);
+    
 
 }
 function addQuantity(product) {
@@ -134,9 +133,7 @@ function addQuantity(product) {
     }
     document.getElementById('quantity').addEventListener('change', function () {
         quantity.value = this.value;
-        console.log('You selected: ', this.value);
     });
-    console.log(quantity.value);
     localStorage.setItem("teddies", JSON.stringify(product));
-    console.log(product);
+   
 }
