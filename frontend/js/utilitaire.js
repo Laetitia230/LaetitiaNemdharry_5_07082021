@@ -12,18 +12,7 @@ function convertPrice(productPrice) {
     }).format(price / 100);
     return price;
 }
-// création de la class produit
-class Product {
-    constructor(id, name, description, price, colors, quantity, imgurl) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.colors = colors;
-        this.quantity = quantity;
-        this.imgurl = imgurl;
-    }
-}
+
 
 // calcul du total
 function displayTotalBasket() {

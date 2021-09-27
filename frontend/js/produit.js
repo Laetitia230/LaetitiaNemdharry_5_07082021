@@ -6,6 +6,18 @@ const newId = searchParams.get("_id");
 
 //modification de l'adresse d'appel à l'API
 const newUrl = `http://localhost:3000/api/teddies/${newId}`;
+// création de la class produit
+    class Product {
+    constructor(id, name, description, price, colors, imgurl, quantity) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.colors = colors;
+        this.imgurl = imgurl;
+        this.quantity = quantity;
+    }
+}
 
 fetch(newUrl)
     .then((response) => response.json())
