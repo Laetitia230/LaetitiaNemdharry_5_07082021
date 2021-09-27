@@ -11,18 +11,6 @@ fetch(newUrl)
     .then((response) => response.json())
     .then((data) => {
         const product = data;
-        // création de la class produit
-        class Product {
-            constructor(id, name, description, price, colors, imgurl, quantity) {
-                this.id = id;
-                this.name = name;
-                this.description = description;
-                this.price = price;
-                this.colors = colors;
-                this.imgurl = imgurl;
-                this.quantity = quantity;
-            }
-        }
         addCard(data);
         const btnAddBasket = document.getElementById("btnAddBasket");
         btnAddBasket.addEventListener("click", (e) => {
